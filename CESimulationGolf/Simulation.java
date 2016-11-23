@@ -5,12 +5,18 @@ import java.awt.*;
 
 import org.math.plot.*;
 import org.math.plot.plotObjects.*;
+/**
+* @author Spiros Mavroidakos
+* @version V4
+* Program to simulate the trajectory of a golf ball 
+*
+**/
 
 public class Simulation
 {
-    public static double radius = 0.04267/2; //the radius of the balls
-	public static double BallMass = 0.04593; //kilograms for the mass of the golf ball
-	public static double AirDensity = 1.225; //kg/m^3 air density at room temperature
+    	private static final double radius = 0.04267/2; //the radius of the balls
+	private static final double BallMass = 0.04593; //kilograms for the mass of the golf ball
+	private static final double AirDensity = 1.225; //kg/m^3 air density at room temperature
 
 		//Constantly changing values
 	public static double XDragforce = 0; // placeholder for the value of the Drag force in the x direction
@@ -43,10 +49,9 @@ public class Simulation
 	public static double [] ydist = new double [15000];
 
 	public static int counter = 0;
+	
     public static void main(String[] args)
     {
-
-
     PrintWriter outputFile = null;
     try
     {
@@ -57,9 +62,7 @@ public class Simulation
         System.out.println("File error.  Program aborted.");
          System.exit(0);
     }
-
-
-		for (int i = 0; i < 240; i++ ) {
+	for (int i = 0; i < 240; i++ ) {
 
 		angle += 0.00436;// is equal to 0.25 degrees
 		BallVelocityImp ();// Gets initial Velocity from collision b/w Ball and golf club
@@ -165,9 +168,9 @@ public class Simulation
 			outputFile.close();
 		}
 
-public static void BallVelocity (){ //calcuates the impact velocity of the ball
+	public static void BallVelocity (){ //calcuates the impact velocity of the ball
 
-				BallVel = Math.sqrt ((Math.pow (Xballvel,2)) + (Math.pow (Yballvel,2)));
+			BallVel = Math.sqrt ((Math.pow (Xballvel,2)) + (Math.pow (Yballvel,2)));
 
 	}
 	public static void DragFactor(){ // calculates the effect of drag for both the x and y direction
